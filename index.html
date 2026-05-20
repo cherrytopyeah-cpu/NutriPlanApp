@@ -1035,8 +1035,9 @@ function calcNorms(p) {
     const prot = Math.round(w * 1.8);
     const fat = Math.round(kcal * 0.25 / 9);
     const carb = Math.round((kcal - prot * 4 - fat * 9) / 4);
-    const water = Math.round(w * 35 / 250);
-
+    let water = Math.round(w * 35 / 250);
+    const MAX_WATER_GLASSES = 14; // 3,5 литра
+    if (water > MAX_WATER_GLASSES) water = MAX_WATER_GLASSES;
     return { kcal, prot, fat, carb, water };
 }
 
